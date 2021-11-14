@@ -1,7 +1,7 @@
-#All used libraries along with dependency and linking
 import os
 import warnings
 import time
+from guppy import hpy
 
 from datetime import datetime
 
@@ -10,13 +10,8 @@ import generateTranscript
 import similarityCheck
 
 def linkType(vidurl):
-    '''
-    Here we are determining the type of link by checking specific position in the link which
-    can be used to determine the type of link and if not valid will exit the program else will return the
-    video id to the main program
-    '''	
+
     global vidKey
-    #start at 22
     if vidurl[8]== 'w':
         vidKey= vidurl[32:]
         print("Provided link:", vidurl,"\nVideo ID obtained:",vidKey,"\nLink Type: Normal Web Address\n")
@@ -36,10 +31,6 @@ def ignoreWarnings():
     warnings.filterwarnings("ignore")
 
 def preRunCheck():
-    '''
-    Here we create the necessary folders for the execution since if executing for first time we get error if no folders exist
-    and we also create the file where we must provide the input that will be used to get the video id
-    '''
     print('Checking prerequisites\n')
     if os.path.isdir('export/text')==False:
         os.makedirs('export/text')
@@ -54,7 +45,6 @@ def preRunCheck():
     exit()
 
 def performCleanup():
-    #Cleans up the temporary files created during execution freeing up space
     print("All operations completed successfully.\nCheck \\export\\text for Text version of export\n")
     time.sleep(3)
     print("Performing Cleanup, please wait.")
@@ -63,19 +53,18 @@ def performCleanup():
     time.sleep(3)
 
 def exportText(clipBoard, fileType):
-    #Export any of the generated string into a text file
     global fileNameTemplate
     with open ('./export/text/'+fileType+' '+fileNameTemplate+'.txt','w',encoding='utf-8') as textFile:
         textFile.write(clipBoard)
 
 def generateReport():
-    #This is only to generate output for the similarityCheck script since this has to access a temporary file for the files to be written
     with open('buffer.txt','r',encoding='utf-8') as textFile:
         clipBoard=textFile.read()
     with open('./export/result/Report '+fileNameTemplate+'.txt','w',encoding='utf-8') as textFile:
         textFile.write(clipBoard)
     
 startTime= time.time()
+memCheck= hpy()
 
 preRunCheck()
 ignoreWarnings()
@@ -109,4 +98,6 @@ performCleanup()
 runTime= time.time()
 runTime= str(runTime-startTime)
 print('Total execution time: '+runTime[:5]+' seconds')
+print(memCheck.heap())
+
 time.sleep(5)
