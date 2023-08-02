@@ -2,7 +2,7 @@
 
 <h2>This branch has been archived and will not recieve any further update newer codebase is in progress and will be pushed into the new branch</h2>
 
-This project utilizes pipeline from the transformers which is used to create the model used for feature extration from the video transcript. The data from YouTube is extracted using youtube_api (currently deprecated) to generate the video transcript.<br>
+This project utilizes pipeline from the transformers which is used to create the model used for feature extration from the video transcript. The data from YouTube is extracted using youtube_api (currently deprecated) to generate the video transcript. Which is then used to create a comparative study between actual transcript of the video and the shortened summary generated using this model to see how much of the content is similar.<br>
 This project was originally created as a part of University curriculum of my undergradute course in Natural Language Processing prior to existance of Large Language Models used currently for these kind of task which are much faster and efficient<br>
 
 <br>Installation procedure<br>
@@ -35,3 +35,6 @@ Also on execution if the export folder is not present it will create that as wel
 Now enter the video link in _"paste our link here.txt"_ in the same directory and run the program again<br>
 Result for the execution will be saved in **_export_** folder<br>
 All files will be saved in format <**_file type_ videoID timestamp.txt**>
+___
+Created by:
+n0ts0lazy (aka Arnab)
