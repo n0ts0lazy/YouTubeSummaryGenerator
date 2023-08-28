@@ -1,0 +1,7 @@
+sitePackage
+run.sh
+__pycache__
+video \cache
+result
+compress.sh
+currentbuildtoshare.zip
