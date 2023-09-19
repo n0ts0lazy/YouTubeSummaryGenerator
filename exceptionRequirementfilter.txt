@@ -1,2 +1,0 @@
-Standard windows/ linux naming symbols aren't allowed
-Symbols: [|, \, /, <, >, *, :, ?, "]
