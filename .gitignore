@@ -1,9 +1,7 @@
 sitePackage
 run.sh
 __pycache__
-Video \Cache
-Audio \Cache
-Result
+video \cache
+result
 compress.sh
 currentbuildtoshare.zip
-exceptionRequirementfilter.txt
